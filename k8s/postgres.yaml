@@ -16,6 +16,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: standard-rwo
   resources:
     requests:
       storage: 1Gi
@@ -43,6 +44,9 @@ spec:
           envFrom:
             - secretRef:
                 name: postgres-secret
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           volumeMounts:
             - name: postgres-data
               mountPath: /var/lib/postgresql/data
