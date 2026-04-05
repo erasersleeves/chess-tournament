@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: chess-gateway
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api/players
+            pathType: Prefix
+            backend:
+              service:
+                name: player-service
+                port:
+                  number: 80
