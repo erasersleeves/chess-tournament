@@ -14,6 +14,9 @@ spec:
       labels:
         app: match-service
     spec:
+      serviceAccountName: match-service-sa 
+      imagePullSecrets:
+        - name: dockerhub-secret 
       containers:
         - name: match-service
           image: bihou/chess-match-service:latest
