@@ -13,3 +13,10 @@ spec:
                 name: player-service
                 port:
                   number: 80
+          - path: /api/matches
+            pathType: Prefix
+            backend:
+              service:
+                name: match-service
+                port:
+                  number: 80
